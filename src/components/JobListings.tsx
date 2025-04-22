@@ -14,9 +14,9 @@ interface Job {
 export default function JobListings() {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   useEffect(() => {
-    fetch("http://localhost:3000/jobs")
+    fetch(`${API_BASE_URL}/jobs`) //
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data.jobs)) {
@@ -35,7 +35,6 @@ export default function JobListings() {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-
       {jobs.map((job) => (
         <Card key={job.slug} className="shadow-md rounded-lg p-4">
           <CardContent>
