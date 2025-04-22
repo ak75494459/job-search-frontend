@@ -28,7 +28,7 @@ const BotpressChat = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${API_BASE_URL}/api/chats`, {
+      const res = await fetch(`${API_BASE_URL}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
